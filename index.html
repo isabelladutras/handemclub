@@ -7,6 +7,11 @@
 <meta name="description" content="Clube de experiências presenciais para mulheres na Ilha do Governador. Uma experiência por mês, turmas de até 20 mulheres, assinatura a R$ 79,90. Primeira vez por R$ 59,90.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="img/isabella.jpg">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Handem Club — Um encontro por mês só para você">
 <meta property="og:description" content="Experiências presenciais para mulheres, turmas de até 20. Assinatura a R$ 79,90 com a experiência inclusa.">
 <script>document.documentElement.classList.add('js');</script>
@@ -145,6 +150,7 @@
   .photo-slot svg{width:30px;height:30px;stroke:var(--bordo);}
   .photo-slot.has-img{padding:0;border:none;}
   .photo-slot.has-img img{width:100%;height:100%;object-fit:cover;}
+  .host .photo-slot.has-img img{object-position:center 22%;}
   .ps-label{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--bordo-deep);}
   .ps-sub{font-size:11.5px;max-width:220px;line-height:1.5;}
   .solution .photo-slot{min-height:480px;}
@@ -437,7 +443,7 @@
           </div>
         </div>
       </div>
-      <div class="photo-slot reveal" data-photo="solucao" data-alt="Mulheres juntas em uma oficina do Handem Club">
+      <div class="photo-slot reveal" data-photo="solucao" data-alt="Participantes em uma experiência do Handem Club, com velas e maquiagem na mesa">
         <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5a2 2 0 00-2.8 0L4 19"/></svg>
         <div class="ps-label">foto: mulheres juntas em uma oficina</div>
         <div class="ps-sub">troque por uma foto real de um encontro do Handem Club</div>
@@ -831,7 +837,7 @@
   var TESTIMONIALS = [];
 
   // Fotos: coloque o endereço (URL) de uma imagem. Vazio = mostra o espaço reservado.
-  var PHOTOS = { solucao: "", isabella: "" };
+  var PHOTOS = { solucao: "img/experiencia.jpg", isabella: "img/isabella.jpg" };
   // ==========================================================
 
   function waLink(key){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MSG[key] || WA_MSG.geral); }

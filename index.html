@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handem Club — Um encontro por mês só para você</title>
+<meta name="description" content="Clube de experiências presenciais para mulheres na Ilha do Governador. Uma experiência por mês, turmas de até 20 mulheres, assinatura a R$ 79,90. Primeira vez por R$ 59,90.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Handem Club — Um encontro por mês só para você">
+<meta property="og:description" content="Experiências presenciais para mulheres, turmas de até 20. Assinatura a R$ 79,90 com a experiência inclusa.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordo-deep:#5C1626;
+    --bordo:#7C2436;
+    --bordo-rose:#A6455A;
+    --bege:#EFE4D2;
+    --bege-soft:#F7F0E4;
+    --white-warm:#FBF7F1;
+    --ink:#2B1D1B;
+    --ink-soft:#5A4B47;
+    --gold:#B08D56;
+    --gold-soft:#D8C39A;
+    --line:rgba(92,22,38,0.14);
+    --shadow:0 24px 60px -30px rgba(43,29,27,0.35);
+    --ease:cubic-bezier(.22,.68,.32,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;}
+  body{margin:0;background:var(--white-warm);color:var(--ink);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4{margin:0;font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+  p{margin:0;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  :focus-visible{outline:2px solid var(--bordo-rose);outline-offset:3px;border-radius:6px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .section{padding:84px 0;}
+  .section-alt{background:var(--bege-soft);}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bordo);font-weight:700;}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);}
+  .section-head{max-width:660px;margin-bottom:42px;}
+  .section-head h2{font-size:clamp(28px,3.2vw,40px);color:var(--bordo-deep);margin-top:14px;line-height:1.18;}
+  .section-head p{margin-top:14px;color:var(--ink-soft);font-size:16px;line-height:1.7;}
+
+  .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .js .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    .js .reveal{opacity:1!important;transform:none!important;transition:none!important;}
+    html{scroll-behavior:auto;}
+  }
+
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;background:var(--bordo-deep);color:var(--white-warm);border-radius:999px;font-weight:700;font-size:15px;box-shadow:var(--shadow);transition:transform .3s var(--ease),background .3s var(--ease);}
+  .btn-primary:hover{background:var(--bordo);transform:translateY(-2px);}
+  .btn-primary svg{width:16px;height:16px;transition:transform .3s var(--ease);}
+  .btn-primary:hover svg{transform:translateX(3px);}
+  .btn-ghost{font-weight:700;font-size:14.5px;color:var(--bordo-deep);border-bottom:1px solid var(--gold);padding-bottom:3px;transition:color .3s var(--ease),border-color .3s var(--ease);}
+  .btn-ghost:hover{color:var(--bordo-rose);border-color:var(--bordo-rose);}
+  .btn-light{background:var(--bege-soft);color:var(--bordo-deep);box-shadow:none;}
+  .btn-light:hover{background:var(--white-warm);}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:100;background:rgba(251,247,241,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--bordo-deep);}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-size:14px;font-weight:600;color:var(--ink-soft);transition:color .25s var(--ease);}
+  .nav-links a:hover{color:var(--bordo-deep);}
+  .nav-links .nav-cta{padding:11px 22px;background:var(--bordo-deep);color:var(--white-warm);border-radius:999px;font-size:13.5px;font-weight:700;}
+  .nav-links .nav-cta:hover{background:var(--bordo);color:var(--white-warm);}
+  .nav-toggle{display:none;flex-direction:column;gap:5px;padding:8px;}
+  .nav-toggle span{width:22px;height:2px;background:var(--bordo-deep);border-radius:2px;}
+  @media (max-width:960px){
+    .nav-toggle{display:flex;}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--white-warm);border-bottom:1px solid var(--line);padding:8px 32px 20px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);}
+    .nav-links .nav-cta{margin-top:14px;text-align:center;border:none;}
+  }
+
+  /* HERO */
+  .hero{padding:68px 0 60px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;top:-180px;right:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(160,60,80,0.16),rgba(239,228,210,0) 70%);pointer-events:none;}
+  .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .hero-title{font-size:clamp(36px,5vw,60px);line-height:1.06;color:var(--bordo-deep);margin:20px 0 22px;}
+  .hero-title em{font-style:italic;color:var(--bordo-rose);}
+  .hero-sub{font-size:17px;line-height:1.75;color:var(--ink-soft);max-width:520px;}
+  .hero-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:28px;}
+  .hero-entry{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:10px 16px;border:1px solid var(--line);border-radius:14px;background:var(--white-warm);font-size:13.5px;color:var(--ink-soft);line-height:1.45;max-width:520px;}
+  .hero-entry b{color:var(--bordo-deep);}
+  .hero-entry svg{width:18px;height:18px;stroke:var(--bordo);flex-shrink:0;}
+  .stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:24px;border-top:1px solid var(--line);}
+  .stat-num{font-family:'Fraunces',serif;font-size:30px;color:var(--bordo-deep);line-height:1;}
+  .stat-label{font-size:12.5px;color:var(--ink-soft);margin-top:6px;max-width:130px;line-height:1.4;}
+
+  .card-stage{perspective:1400px;display:flex;flex-direction:column;align-items:center;}
+  .membership-card{width:100%;max-width:400px;aspect-ratio:1.58/1;border-radius:22px;position:relative;background:radial-gradient(120% 140% at 15% 0%,rgba(216,195,154,0.5),rgba(216,195,154,0) 45%),linear-gradient(135deg,var(--bordo-deep) 0%,var(--bordo) 46%,var(--bordo-rose) 100%);color:var(--bege-soft);box-shadow:0 40px 70px -30px rgba(92,22,38,0.55),0 4px 16px rgba(92,22,38,0.2);padding:28px 30px;display:flex;flex-direction:column;justify-content:space-between;transform-style:preserve-3d;transition:transform .25s var(--ease);overflow:hidden;}
+  .membership-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,0.05) 0 2px,transparent 2px 26px);mix-blend-mode:overlay;pointer-events:none;}
+  .membership-card::after{content:"";position:absolute;width:230px;height:230px;right:-70px;bottom:-90px;border:1px solid rgba(216,195,154,0.35);border-radius:50%;pointer-events:none;}
+  .card-row-top,.card-row-bottom{display:flex;justify-content:space-between;}
+  .card-row-top{align-items:flex-start;}
+  .card-row-bottom{align-items:flex-end;}
+  .card-brand{font-family:'Fraunces',serif;font-style:italic;font-size:20px;}
+  .card-badge{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;border:1px solid rgba(216,195,154,0.55);padding:5px 10px;border-radius:999px;color:var(--gold-soft);}
+  .card-month{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:6px;}
+  .card-theme{font-family:'Fraunces',serif;font-size:24px;line-height:1.15;max-width:85%;}
+  .card-number{font-size:12.5px;letter-spacing:0.08em;color:rgba(247,240,228,0.85);}
+  .card-number span{display:block;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:3px;}
+  .card-mark{width:34px;height:34px;border-radius:50%;border:1px solid rgba(216,195,154,0.55);display:flex;align-items:center;justify-content:center;}
+  .card-mark svg{width:16px;height:16px;}
+  .card-caption{text-align:center;margin-top:18px;font-size:13px;color:var(--ink-soft);max-width:340px;line-height:1.6;}
+  .card-caption strong{color:var(--bordo-deep);}
+  @media (max-width:960px){
+    .hero{padding:44px 0 44px;}
+    .hero-inner{grid-template-columns:1fr;gap:40px;}
+    .membership-card{max-width:340px;}
+  }
+
+  /* DOR */
+  .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .pain-card{background:var(--white-warm);border:1px solid var(--line);border-radius:20px;padding:30px 28px;}
+  .pain-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--gold);margin-bottom:14px;}
+  .pain-title{font-size:21px;color:var(--bordo-deep);margin-bottom:8px;}
+  .pain-text{font-size:14.5px;color:var(--ink-soft);line-height:1.7;}
+  @media (max-width:880px){.pain-grid{grid-template-columns:1fr;}}
+
+  /* SOLUÇÃO */
+  .solution{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;}
+  .solution h2{font-size:clamp(28px,3.2vw,40px);color:var(--bordo-deep);margin-top:14px;line-height:1.18;}
+  .solution-lead{margin-top:18px;font-size:16.5px;line-height:1.8;color:var(--ink-soft);}
+  .solution-lead strong{color:var(--bordo-deep);}
+  .facts{margin-top:28px;display:flex;flex-direction:column;}
+  .fact{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;padding:18px 0;border-top:1px solid var(--line);}
+  .fact:last-child{border-bottom:1px solid var(--line);}
+  .fact-num{font-family:'Fraunces',serif;font-size:34px;color:var(--bordo-rose);line-height:1;}
+  .fact-title{font-weight:700;font-size:15.5px;color:var(--bordo-deep);}
+  .fact-text{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-top:4px;}
+  .photo-slot{border-radius:22px;border:1px dashed rgba(92,22,38,0.35);background:linear-gradient(155deg,rgba(239,228,210,0.9),rgba(247,240,228,0.6));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:26px;color:var(--ink-soft);overflow:hidden;}
+  .photo-slot svg{width:30px;height:30px;stroke:var(--bordo);}
+  .photo-slot.has-img{padding:0;border:none;}
+  .photo-slot.has-img img{width:100%;height:100%;object-fit:cover;}
+  .ps-label{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--bordo-deep);}
+  .ps-sub{font-size:11.5px;max-width:220px;line-height:1.5;}
+  .solution .photo-slot{min-height:480px;}
+  @media (max-width:880px){
+    .solution{grid-template-columns:1fr;}
+    .solution .photo-slot{min-height:240px;order:-1;}
+  }
+
+  /* SERVIÇOS */
+  .includes{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;}
+  .include{background:var(--white-warm);padding:28px 26px;}
+  .include-icon{width:38px;height:38px;border-radius:50%;background:var(--bordo-deep);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .include-icon svg{width:16px;height:16px;stroke:var(--bege-soft);}
+  .include-title{font-family:'Fraunces',serif;font-size:18px;color:var(--bordo-deep);margin-bottom:6px;}
+  .include-text{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+  @media (max-width:880px){.includes{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.includes{grid-template-columns:1fr;}}
+  .chips-title{margin-top:42px;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--bordo);}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:600;color:var(--bordo-deep);background:var(--white-warm);}
+  .chip.new{background:var(--bordo-deep);color:var(--bege-soft);border-color:var(--bordo-deep);}
+  .fineprint{margin-top:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.65;max-width:720px;}
+
+  /* PRÓXIMA EXPERIÊNCIA + AGENDA */
+  .next{border-radius:28px;background:linear-gradient(155deg,var(--bordo-deep),var(--bordo) 55%,var(--bordo-rose));padding:50px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden;color:var(--bege-soft);}
+  .next::before{content:"";position:absolute;right:-60px;top:-90px;width:280px;height:280px;border-radius:50%;border:1px solid rgba(216,195,154,0.28);}
+  .next-date{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.08em;color:var(--gold-soft);border:1px solid rgba(216,195,154,0.45);padding:7px 14px;border-radius:999px;margin-bottom:18px;}
+  .next-date svg{width:14px;height:14px;}
+  .next h3{font-size:clamp(26px,3.2vw,36px);color:var(--bege-soft);line-height:1.15;max-width:460px;}
+  .next-list{margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+  .next-list li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:rgba(247,240,228,0.92);}
+  .next-list svg{width:15px;height:15px;stroke:var(--gold-soft);flex-shrink:0;}
+  .next-cta{display:flex;flex-direction:column;align-items:center;gap:12px;background:rgba(251,247,241,0.08);border:1px solid rgba(216,195,154,0.3);border-radius:20px;padding:32px 30px;text-align:center;min-width:250px;}
+  .next-cta .big{font-family:'Fraunces',serif;font-size:42px;line-height:1;color:var(--bege-soft);}
+  .next-cta .big-label{font-size:12.5px;color:var(--gold-soft);margin-top:-4px;}
+  .count{font-size:13px;font-weight:700;color:var(--bordo-deep);background:var(--bege-soft);border-radius:999px;padding:6px 14px;}
+  .next-cta .note{font-size:11.5px;color:rgba(247,240,228,0.7);}
+  @media (max-width:880px){.next{grid-template-columns:1fr;padding:36px 24px;}.next-cta{width:100%;}}
+
+  .agenda{margin-top:34px;}
+  .agenda-title{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--bordo);margin-bottom:6px;}
+  .agenda-row{display:grid;grid-template-columns:200px 1fr auto;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);}
+  .agenda-date{font-family:'Fraunces',serif;font-size:19px;color:var(--bordo-deep);line-height:1.25;}
+  .agenda-date small{display:block;font-family:'Manrope',sans-serif;font-size:12px;color:var(--ink-soft);margin-top:3px;}
+  .agenda-name{font-weight:700;font-size:15.5px;color:var(--bordo-deep);}
+  .agenda-desc{font-size:13.5px;color:var(--ink-soft);margin-top:3px;line-height:1.55;}
+  .tag{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:800;padding:4px 10px;border-radius:999px;background:var(--bordo-deep);color:var(--bege-soft);}
+  .tag.soft{background:var(--bege);color:var(--bordo-deep);}
+  .agenda-row .btn-ghost{white-space:nowrap;}
+  @media (max-width:760px){.agenda-row{grid-template-columns:1fr;gap:10px;}}
+
+  /* DEPOIMENTOS (aparece só quando há textos em TESTIMONIALS) */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .quote{background:var(--white-warm);border:1px solid var(--line);border-radius:20px;padding:28px 26px;}
+  .quote p{font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.55;color:var(--bordo-deep);}
+  .quote-by{margin-top:16px;font-size:13px;font-weight:700;color:var(--ink-soft);letter-spacing:0.04em;}
+  @media (max-width:880px){.quotes{grid-template-columns:1fr;}}
+
+  /* PLANOS */
+  .plans{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:22px;align-items:stretch;}
+  .plan-card{border-radius:24px;padding:34px 30px;border:1px solid var(--line);background:var(--white-warm);display:flex;flex-direction:column;position:relative;}
+  .plan-card.featured{background:linear-gradient(160deg,var(--bordo-deep),var(--bordo));color:var(--bege-soft);box-shadow:var(--shadow);padding-top:42px;}
+  .plan-flag{position:absolute;top:18px;right:22px;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;border:1px solid rgba(216,195,154,0.5);padding:5px 10px;border-radius:999px;color:var(--gold-soft);}
+  .plan-name{font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:var(--bordo);}
+  .featured .plan-name{color:var(--gold-soft);}
+  .plan-price{font-family:'Fraunces',serif;font-size:42px;margin:14px 0 4px;color:var(--bordo-deep);}
+  .featured .plan-price{color:var(--bege-soft);}
+  .plan-price span{font-size:15px;font-family:'Manrope',sans-serif;font-weight:600;color:var(--ink-soft);}
+  .featured .plan-price span{color:rgba(247,240,228,0.75);}
+  .plan-desc{font-size:14.5px;color:var(--ink-soft);margin:8px 0 22px;line-height:1.6;}
+  .featured .plan-desc{color:rgba(247,240,228,0.85);}
+  .plan-list{display:flex;flex-direction:column;gap:12px;margin-bottom:26px;flex:1;}
+  .plan-list li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start;}
+  .plan-list svg{width:15px;height:15px;margin-top:2px;flex-shrink:0;stroke:var(--bordo);}
+  .featured .plan-list svg{stroke:var(--gold-soft);}
+  .plan-btn{text-align:center;padding:15px;border-radius:999px;font-weight:700;font-size:14.5px;border:1px solid var(--bordo-deep);color:var(--bordo-deep);transition:all .3s var(--ease);}
+  .plan-btn:hover{background:var(--bordo-deep);color:var(--white-warm);}
+  .featured .plan-btn{background:var(--bege-soft);border-color:var(--bege-soft);color:var(--bordo-deep);}
+  .featured .plan-btn:hover{background:var(--white-warm);}
+  .math{margin-top:26px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center;font-size:15px;color:var(--ink-soft);}
+  .math strong{font-family:'Fraunces',serif;font-size:22px;color:var(--bordo-deep);font-weight:500;}
+  .math .pct{background:var(--bordo-deep);color:var(--bege-soft);border-radius:999px;padding:6px 16px;font-weight:800;font-size:14px;}
+  .commit{margin:24px auto 0;display:flex;gap:14px;align-items:flex-start;padding:18px 22px;border-radius:16px;background:var(--white-warm);border:1px solid var(--line);font-size:14px;color:var(--ink-soft);line-height:1.65;max-width:760px;}
+  .commit svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;stroke:var(--bordo);}
+  @media (max-width:980px){
+    .plans{grid-template-columns:1fr;max-width:520px;margin:0 auto;}
+    .plan-card.featured{order:-1;}
+  }
+
+  /* TRAGA UMA AMIGA */
+  .friend{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .friend h2{font-size:clamp(28px,3.2vw,40px);color:var(--bordo-deep);margin-top:14px;line-height:1.18;}
+  .friend-lead{margin-top:16px;font-size:16px;line-height:1.75;color:var(--ink-soft);max-width:480px;}
+  .friend .btn-primary{margin-top:26px;}
+  .friend-cards{display:grid;gap:16px;}
+  .friend-card{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:var(--bege-soft);border:1px solid var(--line);border-radius:20px;padding:24px 26px;}
+  .friend-card .num{font-family:'Fraunces',serif;font-size:34px;color:var(--bordo-rose);line-height:1;min-width:92px;}
+  .friend-card .t{font-weight:700;color:var(--bordo-deep);font-size:15px;}
+  .friend-card .d{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.55;}
+  @media (max-width:880px){.friend{grid-template-columns:1fr;gap:30px;}}
+
+  /* COMO ENTRAR */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s;}
+  .step{background:var(--white-warm);border:1px solid var(--line);border-radius:20px;padding:28px 26px;}
+  .step-n{font-family:'Fraunces',serif;font-size:36px;color:var(--bordo-rose);line-height:1;}
+  .step-t{font-family:'Fraunces',serif;font-size:19px;color:var(--bordo-deep);margin:12px 0 6px;}
+  .step-d{font-size:14.5px;color:var(--ink-soft);line-height:1.65;}
+  @media (max-width:880px){.steps{grid-template-columns:1fr;}}
+
+  /* QUEM CONDUZ */
+  .host{display:grid;grid-template-columns:.4fr .6fr;gap:52px;align-items:center;}
+  .host .photo-slot{aspect-ratio:4/5;}
+  .host-quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,2.3vw,26px);line-height:1.5;color:var(--bordo-deep);margin-top:16px;}
+  .host p.body{margin-top:16px;font-size:15.5px;line-height:1.8;color:var(--ink-soft);}
+  .host-sign{margin-top:22px;font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--bordo-deep);}
+  .host-sign span{display:block;font-family:'Manrope',sans-serif;font-style:normal;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:880px){.host{grid-template-columns:1fr;}.host .photo-slot{aspect-ratio:16/10;}}
+
+  /* FAQ */
+  .faq-list{border-top:1px solid var(--line);max-width:820px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:24px 4px;text-align:left;font-family:'Fraunces',serif;font-size:18px;color:var(--bordo-deep);gap:20px;}
+  .plus{width:26px;height:26px;border-radius:50%;border:1px solid var(--bordo);flex-shrink:0;position:relative;}
+  .plus::before,.plus::after{content:"";position:absolute;background:var(--bordo);top:50%;left:50%;transform:translate(-50%,-50%);}
+  .plus::before{width:10px;height:1.4px;}
+  .plus::after{width:1.4px;height:10px;transition:transform .3s var(--ease);}
+  .faq-item.open .plus::after{transform:translate(-50%,-50%) scaleY(0);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+  .faq-a-inner{padding:0 4px 24px;font-size:14.5px;color:var(--ink-soft);line-height:1.7;max-width:660px;}
+
+  /* CTA FINAL */
+  .final{background:linear-gradient(150deg,var(--bordo-deep),var(--bordo));border-radius:28px;padding:66px 48px;text-align:center;color:var(--bege-soft);position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(216,195,154,0.25),transparent 55%);}
+  .final>*{position:relative;}
+  .final .eyebrow{color:var(--gold-soft);}
+  .final h2{font-size:clamp(28px,3.6vw,42px);max-width:640px;margin:16px auto 0;line-height:1.2;color:var(--bege-soft);}
+  .final p{margin:16px auto 0;color:rgba(247,240,228,0.82);font-size:16px;max-width:540px;line-height:1.7;}
+  .final-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .final .btn-ghost{color:var(--bege-soft);border-color:var(--gold-soft);align-self:center;}
+
+  /* FOOTER */
+  footer{padding:60px 0 100px;border-top:1px solid var(--line);}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:40px;}
+  .footer-logo{font-family:'Fraunces',serif;font-style:italic;font-size:24px;color:var(--bordo-deep);}
+  .footer-tag{font-size:13.5px;color:var(--ink-soft);margin-top:8px;max-width:280px;line-height:1.6;}
+  .footer-cols{display:flex;gap:60px;flex-wrap:wrap;}
+  .footer-col h4{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bordo);margin-bottom:14px;font-family:'Manrope',sans-serif;font-weight:700;}
+  .footer-col a{display:block;font-size:14px;color:var(--ink-soft);margin-bottom:10px;transition:color .25s var(--ease);}
+  .footer-col a:hover{color:var(--bordo-deep);}
+  .footer-bottom{font-size:12.5px;color:var(--ink-soft);padding-top:22px;border-top:1px solid var(--line);}
+
+  /* STICKY MOBILE CTA */
+  .sticky-cta{display:none;}
+  @media (max-width:720px){
+    .wrap{padding:0 22px;}
+    .nav-inner{padding:14px 22px;}
+    .nav-links{padding:8px 22px 20px;}
+    .section{padding:58px 0;}
+    .final{padding:46px 22px;}
+    .friend-card{grid-template-columns:1fr;gap:8px;}
+    .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:rgba(251,247,241,0.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);}
+    .sticky-cta .t{font-size:12.5px;line-height:1.3;color:var(--ink-soft);}
+    .sticky-cta .t b{display:block;color:var(--bordo-deep);font-size:14px;}
+    .sticky-cta .btn-primary{padding:13px 20px;font-size:14px;box-shadow:none;white-space:nowrap;}
+  }
+
+  /* ===== Leitura confortável (público 35–55) ===== */
+  body{font-size:17px;line-height:1.65;}
+  p,li,.step-d,.faq-a-inner{font-size:16px;}
+  .faq-q{font-size:19px;}
+  .btn-primary,.btn-ghost,.plan-btn{font-size:16px;min-height:48px;}
+  .hint{font-size:14px;color:var(--ink-soft);margin-top:10px;text-align:center;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Handem Club</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#solucao">O clube</a>
+      <a href="#agenda">Próximas datas</a>
+      <a href="#planos">Planos</a>
+      <a href="#amiga">Traga uma amiga</a>
+      <a href="#faq">Perguntas</a>
+      <a href="#" class="nav-cta" data-wa="vaga">Quero participar</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO: A DOR -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Clube de experiências para mulheres · Ilha do Governador</span>
+        <h1 class="hero-title">Você cuida de todo mundo. <em>E de você, quando?</em></h1>
+        <p class="hero-sub">Filhos, casa, trabalho, família: a agenda é dos outros. O Handem Club coloca um encontro por mês na sua, com uma atividade nova, café e outras mulheres no mesmo ritmo que você. Em turmas de até 20.</p>
+        <div class="hero-ctas">
+          <a href="#agenda" class="btn-primary">Ver próximas datas
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#planos" class="btn-ghost">Ver planos e preços</a>
+        </div>
+        <div class="hero-entry">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          <span><b>Primeira vez?</b> Experiência de boas-vindas por R$ 59,90, sem compromisso, em 25/11 ou 28/11.</span>
+        </div>
+        <div class="stats">
+          <div><div class="stat-num">1</div><div class="stat-label">experiência nova por mês</div></div>
+          <div><div class="stat-num">20</div><div class="stat-label">mulheres por turma, no máximo</div></div>
+          <div><div class="stat-num">R$ 79,90</div><div class="stat-label">por mês, experiência inclusa</div></div>
+        </div>
+      </div>
+
+      <div class="card-stage">
+        <div class="membership-card" id="membershipCard">
+          <div class="card-row-top">
+            <span class="card-brand">Handem Club</span>
+            <span class="card-badge">Assinante</span>
+          </div>
+          <div>
+            <div class="card-month">Experiência de Outubro</div>
+            <div class="card-theme">Oficina de Velas Artesanais</div>
+          </div>
+          <div class="card-row-bottom">
+            <div class="card-number"><span>Membro Nº</span>001 · Isabella</div>
+            <div class="card-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D8C39A" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.2 1 5.5 3 2.3-2 3.5-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21z"/></svg>
+            </div>
+          </div>
+        </div>
+        <p class="card-caption">Cada assinante recebe um <strong>Cartão Handem Club</strong> digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR (detalhe) -->
+  <section class="section section-alt" id="dor">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Reconhece isso?</span>
+        <h2>O que a rotina tira de você, mês após mês</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-num">01</div>
+          <h3 class="pain-title">Tempo</h3>
+          <p class="pain-text">A sua agenda é ocupada por filhos, casa, trabalho e família. O que sobra para você raramente é planejado.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-num">02</div>
+          <h3 class="pain-title">Novidade</h3>
+          <p class="pain-text">Dá vontade de aprender algo novo, mas falta um lugar simples para começar e alguém para ir junto.</p>
+        </div>
+        <div class="pain-card reveal">
+          <div class="pain-num">03</div>
+          <h3 class="pain-title">Conexão</h3>
+          <p class="pain-text">Conversar com outras mulheres, sem pressa e sem pauta, acontece cada vez menos. E faz falta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="section" id="solucao">
+    <div class="wrap solution">
+      <div class="reveal">
+        <span class="eyebrow">A solução</span>
+        <h2>Um encontro marcado por mês, sem você precisar organizar nada</h2>
+        <p class="solution-lead">O Handem Club é uma <strong>assinatura mensal de experiências presenciais</strong>. Você assina, recebe o tema, a data e o local, e só precisa chegar. Não é um curso: é um encontro com atividade, recepção e mulheres que também reservaram aquele horário para si.</p>
+        <div class="facts">
+          <div class="fact">
+            <div class="fact-num">1</div>
+            <div><div class="fact-title">Uma experiência por mês</div><div class="fact-text">Tema novo a cada mês: beleza, bem-estar, criatividade, gastronomia, desenvolvimento pessoal.</div></div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">20</div>
+            <div><div class="fact-title">Turmas de até 20 mulheres</div><div class="fact-text">Grupo pequeno: todo mundo participa e conversa. Se lotar, abrimos nova turma.</div></div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">2</div>
+            <div><div class="fact-title">Datas para escolher</div><div class="fact-text">A cada experiência, uma data em dia de semana e outra no sábado, para caber na sua rotina.</div></div>
+          </div>
+          <div class="fact">
+            <div class="fact-num">✓</div>
+            <div><div class="fact-title">Experiência inclusa na assinatura</div><div class="fact-text">Você não paga cada encontro à parte. Nas oficinas manuais, o que você faz vai para casa com você.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="photo-slot reveal" data-photo="solucao" data-alt="Mulheres juntas em uma oficina do Handem Club">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5.5-5.5a2 2 0 00-2.8 0L4 19"/></svg>
+        <div class="ps-label">foto: mulheres juntas em uma oficina</div>
+        <div class="ps-sub">troque por uma foto real de um encontro do Handem Club</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section section-alt" id="inclui">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">O que a assinatura inclui</span>
+        <h2>Tudo isso por R$ 79,90 por mês</h2>
+      </div>
+      <div class="includes reveal">
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <div class="include-title">Experiência mensal</div>
+          <div class="include-text">Um encontro presencial por mês, planejado do início ao fim.</div>
+        </div>
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="include-title">Vaga garantida</div>
+          <div class="include-text">Toda assinante ativa tem lugar na experiência do mês. Se a turma lotar, abrimos outra.</div>
+        </div>
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 9h16v9a2 2 0 01-2 2H6a2 2 0 01-2-2V9zM4 9V7a2 2 0 012-2h12a2 2 0 012 2v2"/></svg></div>
+          <div class="include-title">Recepção e mimos</div>
+          <div class="include-text">Coffee, brunch ou recepção especial (quando previsto) e mimos exclusivos.</div>
+        </div>
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M10 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="include-title">Comunidade exclusiva</div>
+          <div class="include-text">Novidades, conteúdos, programação antecipada e enquetes para sugerir as próximas experiências.</div>
+        </div>
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 12v9H4v-9M2 7h20v5H2V7zM12 7v14"/></svg></div>
+          <div class="include-title">Descontos em parceiros</div>
+          <div class="include-text">Restaurantes, cafeterias, lojas, clínicas, academias, fotógrafos e maquiagem. A lista cresce a cada parceria.</div>
+        </div>
+        <div class="include">
+          <div class="include-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.2 1 5.5 3 2.3-2 3.5-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21z"/></svg></div>
+          <div class="include-title">Prioridade em novidades</div>
+          <div class="include-text">Acesso antecipado a experiências especiais e a novas datas.</div>
+        </div>
+      </div>
+
+      <div class="chips-title reveal">Exemplos de experiências (a programação muda todo mês)</div>
+      <div class="chips reveal">
+        <span class="chip new">Velas artesanais</span>
+        <span class="chip">Automaquiagem</span>
+        <span class="chip">Yoga e autocuidado</span>
+        <span class="chip">Cerâmica</span>
+        <span class="chip">Pintura em ecobag</span>
+        <span class="chip">Pintura em tela</span>
+        <span class="chip">Arranjos florais</span>
+        <span class="chip">Aromaterapia</span>
+        <span class="chip">Brunch temático</span>
+        <span class="chip">Workshops</span>
+        <span class="chip">Networking feminino</span>
+        <span class="chip">Experiência surpresa</span>
+      </div>
+      <p class="fineprint reveal">Os materiais da maioria das experiências estão inclusos. Em algumas oficinas pode haver um item extra opcional, vendido à parte, ou um objeto pessoal para você levar. Isso é sempre avisado com antecedência.</p>
+    </div>
+  </section>
+
+  <!-- PRÓXIMA EXPERIÊNCIA + AGENDA -->
+  <section class="section" id="agenda">
+    <div class="wrap">
+      <div class="next reveal" id="proxima">
+        <div>
+          <span class="next-date">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+            Sábado · 31 de outubro · 14h
+          </span>
+          <h3>Oficina de Velas Artesanais</h3>
+          <ul class="next-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Você faz a sua vela e leva para casa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Mais atividades especiais</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Momento de conexão</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Surpresas</li>
+          </ul>
+        </div>
+        <div class="next-cta">
+          <span class="eyebrow" style="color:var(--gold-soft);">Próxima experiência</span>
+          <div class="big">31/10</div>
+          <div class="big-label">sábado, às 14h</div>
+          <div class="count" id="count" hidden></div>
+          <a href="#" class="btn-primary btn-light" data-wa="vaga">Garantir minha vaga
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="note">Vagas limitadas a 20, confirmadas por ordem de inscrição</span>
+        </div>
+      </div>
+
+      <div class="agenda reveal">
+        <div class="agenda-title">Depois da oficina</div>
+        <div class="agenda-row">
+          <div class="agenda-date">Qua 25/11 e Sáb 28/11<small>horário a divulgar</small></div>
+          <div>
+            <div class="agenda-name">Experiência de boas-vindas</div>
+            <div class="agenda-desc">Para quem nunca veio: uma experiência completa, em turma pequena, sem compromisso de assinatura. Tema a divulgar.</div>
+            <span class="tag">Primeira vez: R$ 59,90</span>
+          </div>
+          <a href="#" class="btn-ghost" data-wa="boasvindas">Quero entrar</a>
+        </div>
+        <div class="agenda-row">
+          <div class="agenda-date">Qua 16/12 e Sáb 19/12<small>em espaço parceiro</small></div>
+          <div>
+            <div class="agenda-name">Carta para mim mesma</div>
+            <div class="agenda-desc">A experiência de dezembro, em parceria. Detalhes em breve, primeiro para as assinantes.</div>
+            <span class="tag soft">Em breve</span>
+          </div>
+          <a href="#" class="btn-ghost" data-wa="avisar">Quero ser avisada</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (só aparece quando TESTIMONIALS tiver textos) -->
+  <section class="section section-alt" id="depoimentos" hidden>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Quem já veio</span>
+        <h2>O que as participantes dizem</h2>
+      </div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section class="section section-alt" id="planos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Planos</span>
+        <h2>Escolha como entrar no Handem Club</h2>
+        <p>Três jeitos de começar. Em todos, turmas de até 20 mulheres.</p>
+      </div>
+      <div class="plans reveal">
+        <div class="plan-card">
+          <div class="plan-name">Primeira vez</div>
+          <div class="plan-price">R$ 59<span>,90 · uma vez</span></div>
+          <div class="plan-desc">Para conhecer o clube sem compromisso. Experiência de boas-vindas em 25/11 ou 28/11.</div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Uma experiência completa</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sem compromisso de assinatura</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Vale uma vez por pessoa</li>
+          </ul>
+          <a href="#" class="plan-btn" data-wa="boasvindas">Quero a boas-vindas</a>
+        </div>
+        <div class="plan-card featured">
+          <span class="plan-flag">Mais escolhida</span>
+          <div class="plan-name">Assinatura Handem Club</div>
+          <div class="plan-price">R$ 79<span>,90 · por mês</span></div>
+          <div class="plan-desc">Cobrança recorrente no cartão. A experiência de todo mês já está inclusa.</div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Vaga garantida em toda experiência mensal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Comunidade exclusiva de assinantes</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Descontos e benefícios com parceiros</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Prioridade em novidades e experiências especiais</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Convide amigas com desconto</li>
+          </ul>
+          <a href="#" class="plan-btn" data-wa="assinatura">Quero ser assinante</a>
+        </div>
+        <div class="plan-card">
+          <div class="plan-name">Participação avulsa</div>
+          <div class="plan-price">R$ 187<span>,00 · por encontro</span></div>
+          <div class="plan-desc">Para ir a uma experiência específica, sem assinar. Conforme disponibilidade de vagas.</div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Uma experiência do mês</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sem compromisso de continuidade</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Sujeito à disponibilidade de vagas</li>
+          </ul>
+          <a href="#" class="plan-btn" data-wa="avulso">Quero participar</a>
+        </div>
+      </div>
+      <div class="math reveal">
+        <span>Avulso <strong>R$ 187,00</strong></span>
+        <span>→</span>
+        <span>Assinatura <strong>R$ 79,90</strong></span>
+        <span class="pct">57% menos por encontro</span>
+      </div>
+      <div class="commit reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+        <span>A assinatura tem um compromisso inicial de <strong style="color:var(--bordo-deep);">3 meses</strong>. Depois disso, você pode cancelar a qualquer momento, sem multa ou taxas.</span>
+      </div>
+      <p class="hint reveal">Pagamento online e seguro. Ficou com dúvida? <a href="#" data-wa="geral" style="color:var(--bordo);text-decoration:underline;">Chame no WhatsApp</a>.</p>
+    </div>
+  </section>
+
+  <!-- TRAGA UMA AMIGA -->
+  <section class="section" id="amiga">
+    <div class="wrap friend">
+      <div class="reveal">
+        <span class="eyebrow">Traga uma amiga</span>
+        <h2>Vir com alguém é mais fácil. E sai mais barato para as duas.</h2>
+        <p class="friend-lead">Assinantes podem convidar amigas para a primeira experiência com desconto. Se a sua amiga gostar e assinar, você também ganha.</p>
+        <a href="#" class="btn-primary" data-wa="amiga">Quero trazer uma amiga
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="friend-cards reveal">
+        <div class="friend-card">
+          <div class="num">R$ 39,90</div>
+          <div><div class="t">Sua amiga, na primeira experiência</div><div class="d">Metade da mensalidade, em vez do valor de entrada.</div></div>
+        </div>
+        <div class="friend-card">
+          <div class="num">50%</div>
+          <div><div class="t">Você, na próxima mensalidade</div><div class="d">Desconto de 50% se a sua amiga assinar o clube.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ENTRAR -->
+  <section class="section section-alt" id="como-entrar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Como entrar</span>
+        <h2>Três passos até a sua primeira experiência</h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><div class="step-n">1</div><div class="step-t">Escolha como começar</div><div class="step-d">Boas-vindas por R$ 59,90, assinatura por R$ 79,90 ou participação avulsa.</div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-t">Faça sua inscrição</div><div class="step-d">Pagamento online e seguro, pelo link. As vagas são limitadas a 20 por data e confirmadas por ordem de pagamento. Dúvidas? Chame no WhatsApp.</div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-t">Receba os detalhes e venha</div><div class="step-d">Você recebe tema, data, horário, local e o que levar. É só chegar.</div></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;" class="reveal">
+        <a href="#" class="btn-primary" data-wa="geral">Tirar dúvidas no WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEM CONDUZ -->
+  <section class="section" id="historia">
+    <div class="wrap host reveal">
+      <div class="photo-slot" data-photo="isabella" data-alt="Isabella, fundadora do Handem Club">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
+        <div class="ps-label">foto: Isabella</div>
+        <div class="ps-sub">retrato da fundadora, de preferência com luz natural</div>
+      </div>
+      <div>
+        <span class="eyebrow">Quem está por trás</span>
+        <p class="host-quote">"Eu precisava tanto de um momento assim..."</p>
+        <p class="body">Durante anos eu preparei mulheres para momentos importantes: casamentos, debutantes, formaturas. No fim de quase todo atendimento, vinha a mesma frase. Foi dela que nasceu o Handem Club: um momento só seu, todo mês, sem precisar de uma data especial no calendário.</p>
+        <div class="host-sign">Isabella <span>Fundadora · Handem Club</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>O que mais perguntam antes de entrar</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Como faço para pagar?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">O pagamento é online, pelo link de inscrição, em ambiente seguro. A assinatura é cobrada todo mês no cartão de crédito. Dúvidas antes de pagar? Chame no WhatsApp (21) 98615-3800.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Nunca fui. E se eu não conhecer ninguém?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">As turmas têm no máximo 20 mulheres e a experiência é uma atividade guiada, o que facilita a conversa desde o começo. Se preferir chegar acompanhada, use o "traga uma amiga": ela paga R$ 39,90 na primeira experiência.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Posso só conhecer antes de assinar?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim. A experiência de boas-vindas custa R$ 59,90, vale uma vez por pessoa e não exige assinatura. As próximas são em 25/11 e 28/11. Também existe a participação avulsa, por R$ 187,00, conforme disponibilidade.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Minha vaga é garantida?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim. Toda assinante ativa tem direito à experiência do mês. Se a turma lotar, abrimos novas turmas para todas participarem da mesma experiência.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Posso cancelar quando quiser?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Depois do compromisso inicial de 3 meses, sim. O cancelamento pode ser pedido a qualquer momento, sem multa ou taxas.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>E se eu não puder ir em um mês?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Você pode transferir a sua vaga para outra mulher, respeitando o prazo informado a cada encontro. A assinatura continua no seu nome.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Os materiais estão inclusos?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Na maioria das experiências, sim. Algumas pedem que você leve um item pessoal (ecobag, camiseta, vaso, moldura) ou oferecem um kit ou item extra opcional, sempre informado com antecedência.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Posso levar uma amiga?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Sim, pelo "traga uma amiga". Sua amiga paga R$ 39,90 na primeira experiência. Se ela assinar, você ganha 50% de desconto na próxima mensalidade. Fora disso, as experiências são exclusivas para assinantes e participantes inscritas.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Onde acontecem os encontros?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">No Espaço Handem, na Ilha do Governador, e, em algumas experiências, em espaços parceiros. O local de cada encontro é divulgado junto com o tema, a data e o horário.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Quem pode participar?</span><span class="plus"></span></button>
+          <div class="faq-a"><div class="faq-a-inner">Mulheres que querem viver experiências de autocuidado, conexão e desenvolvimento.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section">
+    <div class="wrap">
+      <div class="final reveal">
+        <span class="eyebrow">Handem Club</span>
+        <h2>Próxima experiência: 31/10, às 14h</h2>
+        <p>Oficina de velas artesanais, café e mulheres que também reservaram esse sábado para si. Vagas limitadas a 20 por turma.</p>
+        <div class="final-btns">
+          <a href="#" class="btn-primary btn-light" data-wa="vaga">Garantir minha vaga
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#" class="btn-ghost" data-wa="boasvindas">Primeira vez? Boas-vindas por R$ 59,90</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Handem Club</div>
+        <div class="footer-tag">Clube de experiências mensais para mulheres. Ilha do Governador, RJ.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Clube</h4>
+          <a href="#solucao">O clube</a>
+          <a href="#agenda">Próximas datas</a>
+          <a href="#planos">Planos</a>
+          <a href="#faq">Perguntas</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#" data-link="instagram">Instagram</a>
+          <a href="#" data-wa="geral">WhatsApp (21) 98615-3800</a>
+          <a href="#" data-wa="geral">Fale conosco</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacidade.html">Política de Privacidade</a>
+          <a href="termos.html">Termos da Assinatura</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© <span id="year">2026</span> Handem Club</div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <div class="t"><b>31/10 · sábado · 14h</b>Oficina de Velas Artesanais</div>
+  <a href="#" class="btn-primary" data-wa="vaga">Garantir vaga</a>
+</div>
+
+<script>
+  // =====================  CONFIGURAÇÃO  =====================
+  // WhatsApp principal (DDI + DDD + número, só dígitos). Se ficar vazio, os botões não abrem o WhatsApp.
+  var WA_NUMBER = "5521986153800";
+  // Mensagem que já chega pronta no WhatsApp, por botão.
+  var WA_MSG = {
+    geral:       "Olá! Quero saber mais sobre o Handem Club.",
+    vaga:        "Olá! Quero garantir minha vaga na Oficina de Velas Artesanais do Handem Club (31/10, 14h).",
+    boasvindas:  "Olá! Quero participar da experiência de boas-vindas do Handem Club (R$ 59,90).",
+    assinatura:  "Olá! Quero ser assinante do Handem Club.",
+    avulso:      "Olá! Quero participar de uma experiência avulsa do Handem Club.",
+    amiga:       "Olá! Quero trazer uma amiga para o Handem Club.",
+    avisar:      "Olá! Quero ser avisada sobre a experiência de dezembro do Handem Club."
+  };
+  var INSTAGRAM_URL = "https://instagram.com/handemisabella";
+
+  // LINKS DE PAGAMENTO (Kiwify). Cole aqui o link de cada produto. Vazio = o botão abre o WhatsApp.
+  var PAY = {
+    vaga:        "https://pay.kiwify.com.br/YLqoBnh",   // Oficina de Velas Artesanais · 31/10
+    boasvindas:  "https://pay.kiwify.com.br/SsGlMKV",   // Experiência de boas-vindas · R$ 59,90
+    assinatura:  "https://pay.kiwify.com.br/lbKqXMI",   // Assinatura mensal · R$ 79,90
+    avulso:      "https://pay.kiwify.com.br/YLqoBnh"    // Experiência avulsa · R$ 187,00
+  };
+
+  // MEDIÇÃO (opcional). Deixe vazio para não carregar nada.
+  var META_PIXEL_ID = "";   // ex.: "123456789012345"
+  var GA4_ID        = "";   // ex.: "G-XXXXXXXXXX"
+
+
+  // Depoimentos: preencha depois da oficina de 31/10. Enquanto estiver vazio, a seção fica escondida.
+  // Exemplo: { texto: "Saí de lá com a vela e com amigas novas.", nome: "Nome, bairro" }
+  var TESTIMONIALS = [];
+
+  // Fotos: coloque o endereço (URL) de uma imagem. Vazio = mostra o espaço reservado.
+  var PHOTOS = { solucao: "", isabella: "" };
+  // ==========================================================
+
+  function waLink(key){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_MSG[key] || WA_MSG.geral); }
+  // Mantém origem da campanha (utm_*, src, click_id) e repassa para o link de pagamento
+  var KEEP = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","src","click_id","fbclid","gclid"];
+  var params = new URLSearchParams(window.location.search);
+  function payLink(key){
+    var u = PAY[key]; if(!u) return "";
+    try{
+      var url = new URL(u);
+      KEEP.forEach(function(k){ var v = params.get(k); if(v) url.searchParams.set(k, v); });
+      return url.toString();
+    }catch(e){ return u; }
+  }
+
+  // Medição
+  if(META_PIXEL_ID){
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', META_PIXEL_ID); fbq('track','PageView');
+  }
+  if(GA4_ID){
+    var g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID; document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', GA4_ID);
+  }
+  function track(kind, key){
+    try{
+      if(window.fbq) fbq('track', kind === 'pay' ? 'InitiateCheckout' : 'Contact', {content_name: key});
+      if(window.gtag) gtag('event', kind === 'pay' ? 'begin_checkout' : 'contact', {item_name: key});
+    }catch(e){}
+  }
+
+  document.querySelectorAll('[data-wa]').forEach(function(el){
+    var key = el.getAttribute('data-wa');
+    var pay = payLink(key);
+    if(pay){
+      el.href = pay; el.target = "_blank"; el.rel = "noopener";
+      el.addEventListener('click', function(){ track('pay', key); });
+    } else if(WA_NUMBER){
+      el.href = waLink(key); el.target = "_blank"; el.rel = "noopener";
+      el.addEventListener('click', function(){ track('wa', key); });
+    }
+  });
+  document.querySelectorAll('[data-link="instagram"]').forEach(function(el){
+    if(INSTAGRAM_URL){ el.href = INSTAGRAM_URL; el.target = "_blank"; el.rel = "noopener"; }
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Depoimentos
+  if(TESTIMONIALS.length){
+    var box = document.getElementById('quotes');
+    TESTIMONIALS.forEach(function(t){
+      var d = document.createElement('div'); d.className = 'quote';
+      var p = document.createElement('p'); p.textContent = '"' + t.texto + '"';
+      var b = document.createElement('div'); b.className = 'quote-by'; b.textContent = t.nome || '';
+      d.appendChild(p); d.appendChild(b); box.appendChild(d);
+    });
+    document.getElementById('depoimentos').hidden = false;
+  }
+
+  // Fotos
+  document.querySelectorAll('[data-photo]').forEach(function(el){
+    var u = PHOTOS[el.getAttribute('data-photo')];
+    if(u){
+      var img = document.createElement('img');
+      img.src = u; img.alt = el.getAttribute('data-alt') || ''; img.loading = 'lazy';
+      el.innerHTML = ''; el.appendChild(img); el.classList.add('has-img');
+    }
+  });
+
+  // Contagem regressiva até a oficina (31/10, 14h)
+  (function(){
+    var el = document.getElementById('count');
+    var target = new Date('2026-10-31T14:00:00-03:00').getTime();
+    var now = Date.now();
+    var days = Math.ceil((target - now) / 86400000);
+    if(target - now <= 0) return;
+    el.hidden = false;
+    el.textContent = days > 1 ? ('Faltam ' + days + ' dias') : (days === 1 ? 'É amanhã' : 'É hoje');
+  })();
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  // Card tilt
+  var card = document.getElementById('membershipCard');
+  var stage = card ? card.closest('.card-stage') : null;
+  if(card && stage && window.matchMedia('(pointer:fine)').matches){
+    stage.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left)/r.width - 0.5;
+      var y = (e.clientY - r.top)/r.height - 0.5;
+      card.style.transform = 'rotateY(' + (x*14) + 'deg) rotateX(' + (-y*14) + 'deg) translateY(-4px)';
+    });
+    stage.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+  }
+
+  // FAQ
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+
+  // Mobile nav
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ links.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); });
+  });
+</script>
+</body>
+</html>
